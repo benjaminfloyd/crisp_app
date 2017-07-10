@@ -7,7 +7,7 @@ end
 
 gem 'devise_token_auth'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
-
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record
