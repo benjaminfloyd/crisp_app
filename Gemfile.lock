@@ -193,6 +193,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  devise
   devise_token_auth
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
