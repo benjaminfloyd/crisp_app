@@ -1,5 +1,5 @@
-  import loginController from "./login.controllers";
-  import usersTemplate from "./login.html";
+  import loginController from "./new.controller";
+  import usersTemplate from "./new.html";
 
   const usersComponent = {
   	controller: loginController,

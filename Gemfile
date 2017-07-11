@@ -5,9 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'devise_token_auth'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'devise'
+gem 'foundation-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 # Use postgresql as the database for Active Record

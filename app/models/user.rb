@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   before_save -> do
     skip_confirmation!
   end  
+  
 end

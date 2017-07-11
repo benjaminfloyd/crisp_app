@@ -1,3 +1,46 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hero-background {
+  height: 700px;
+  background-image: url(./FarmToTableBackground.jpg);
+  background-size: cover;
+  color: #fefefe;
+  padding: 40px 0;
+}
+
+.hero-background h1, .hero-background p {
+  color: #fefefe;
+}
+
+.log-in-form {
+  border: 1px solid $medium-gray;
+  padding: $form-spacing;
+  border-radius: $global-radius;
+}
+
+$translucent-form-overlay-max-width: 500px;
+
+.translucent-form-overlay {
+  max-width: $translucent-form-overlay-max-width;
+  width: 100%;
+  background-color: rgba(254, 254, 254, 0.2);
+  padding: 20px;
+  color: $white;
+
+  // workaround 6.3.0 bug
+  .columns.row {
+    display: block;
+  }
+
+  h3, label {
+    color: $white;
+  }
+  input, select {
+    color: $dark-gray;
+  }
+  input::placeholder {
+    color: $dark-gray;
+  }
+}
+
