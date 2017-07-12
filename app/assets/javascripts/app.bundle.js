@@ -8866,10 +8866,12 @@ function NewListController($stateParams, $http, listService, $state, $auth) {
 	vm.user = $auth.user;
 	vm.list = {};
 	vm.items = [];
+	vm.addItem = addItem;
 	vm.newItem = '';
+	vm.newList = {};
 
 	vm.saveList = function () {
-		listService.saveList(vm.list).then(function (res) {
+		listService.saveList(vm.user.id, vm.list).then(function (res) {
 			$state.go("home");
 		});
 	};
@@ -8878,6 +8880,9 @@ function NewListController($stateParams, $http, listService, $state, $auth) {
 		vm.items.push(vm.newItem);
 		vm.newItem = '';
 	};
+	vm.list = {};
+
+	function addItem() {}
 }
 
 exports.default = NewListController;
@@ -46333,7 +46338,7 @@ angular.module('CrispApp').component('newList', newListComponent);
 /* 105 */
 /***/ (function(module, exports) {
 
-module.exports = "  <div id=\"header\">\n  <h1>Grocery list manager </h1>\n  <h2>Add an item below</h2>\n<form class=\"Grocery-list-form\" ng-submit=\"$ctrl.addItem()\">\n  <input id=\"inputText\" type=\"item\" ng-model=\"$ctrl.newItem\" required=\"required\" class=\"form-control\"placeholder=\"enter grocery item\">\n  <button type=\"submit\"> <i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i>add</button>\n  </div>\n</form>\n\n<ul id=\"list\">\n\n    <ul class=\"list-group\">\n        <li ng-repeat=\"item in $ctrl.items\" class=\"list-group-item\">\n            <span> {{ item }} </span>\n        </li>\n    </ul>\n\n</ul>";
+module.exports = "  <div id=\"header\">\n  <h1>Grocery list manager </h1>\n  <h2>Add an item below</h2>\n<form class=\"Grocery-list-form\" ng-submit=\"$ctrl.addItem()\">\n  <input id=\"inputText\" type=\"item\" ng-model=\"$ctrl.newItem\" required=\"required\" class=\"form-control\"placeholder=\"enter grocery item\">\n  <button type=\"submit\"> <i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i>add</button>\n  </div>\n</form>\n<div>\n    <ul id=\"list\">\n        <ul class=\"list-group\">\n            <li ng-repeat=\"item in $ctrl.items\" class=\"list-group-item\">\n                <span> {{ item }} </span>\n            </li>\n        </ul>\n    </ul>\n    <button type=\"submit\" ng-click=\"$ctrl.saveList()\" class=\"button\">Submit</button>\n</div>\n";
 
 /***/ }),
 /* 106 */
@@ -46482,8 +46487,14 @@ function listService($http) {
 	};
 
 	service.saveList = function (userId, newList) {
-		return $http.post("/api/users/" + userId, newList).then(function (res) {
-			return res;
+		return $http.post("/api/users/" + userId + "/lists", newList).then(function (res) {
+			// return res.data;
+			console.log(res);
+			var list = res.data;
+			return $http.post("/lists/" + list.id + "/foods", newList).then(function (response) {
+				return response.data;
+			});
+			// return res.data;
 		});
 	};
 

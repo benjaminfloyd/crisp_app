@@ -17,9 +17,16 @@ function listService ($http) {
 		});
 	};
 
-	service.saveList = function (userId,newList) {
-		return $http.post("/api/users/" + userId, newList).then(res => {
-			return res;
+	service.saveList = function (userId, newList) {
+		return $http.post("/api/users/" + userId + "/lists", newList).then(res => {
+			// return res.data;
+			console.log(res);
+			var list = res.data;
+			return $http.post(`/lists/${list.id}/foods`, newList)
+			.then(response => {
+				return response.data;
+			});
+			// return res.data;
 		});
 	};
 

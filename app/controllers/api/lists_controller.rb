@@ -1,8 +1,8 @@
-class ListsController < ApplicationController
+class Api::ListsController < ApplicationController
 
     def index
         @user = User.find(params["user_id"])
-        @list = @user.list 
+        @list = @user.lists 
         render json: @list
     end
     
@@ -17,15 +17,15 @@ class ListsController < ApplicationController
 
     def create
         @user = User.find(params[:user_id])
-        @list = @user.list.create(params[:id])
+        @list = List.create!(user_id: params[:user_id])
             if @list.save
-                redirect_to user_path(@artist)
+                render json: @list
             else
-            render status: 500,
-                json: {
-                error: @list.errors
-            }
-        end
+                render status: 500,
+                    json: {
+                        error: @list.errors
+                    }
+            end
     end
     
     def update
@@ -34,25 +34,25 @@ class ListsController < ApplicationController
         if @list.update(params[:id])
             redirect_to user_path(@user)
         else
-            render status 500,
-            json {
+            render status: 500,
+            json: {
                 error: @list.errors
-            }    
+            }
+        end  
     end   
         
     def destroy
       @user = User.find(params[:id])
 
-      if @user.destroy
-      redirect_to users_path
-    else
-        render status: 500,
-        json: {
-            error:'Could not delete'
-        }
-
-    end        
-  end       
+        if @user.destroy
+            redirect_to users_path
+        else
+            render status: 500,
+                    json: {
+                        error:'Could not delete'
+                    }
+        end
+    end               
 
   private
   def user_params
