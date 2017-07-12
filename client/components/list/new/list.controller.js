@@ -3,14 +3,13 @@ NewListController.$inject = ["$stateParams", "$http", "listService", "$state","$
 function NewListController($stateParams, $http, listService, $state, $auth) {
     var vm = this;
     vm.user = $auth.user;
-	vm.list = {};
 	vm.items = [];
 	vm.addItem = addItem;
 	vm.newItem = '';
 	vm.newList = {};
 
 	vm.saveList = function () {
-		listService.saveList(vm.user.id, vm.list).then((res) => {
+		listService.saveList(vm.user.id, vm.items).then((res) => {
       		$state.go("home");
 		});
 	};
@@ -19,7 +18,6 @@ function NewListController($stateParams, $http, listService, $state, $auth) {
 		vm.items.push(vm.newItem);
 		vm.newItem = '';
 	}
-	vm.list = {};
 
 	function addItem(){
 

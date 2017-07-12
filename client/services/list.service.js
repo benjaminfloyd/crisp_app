@@ -18,11 +18,16 @@ function listService ($http) {
 	};
 
 	service.saveList = function (userId, newList) {
-		return $http.post("/api/users/" + userId + "/lists", newList).then(res => {
+		console.log(newList);
+		var newItems = {
+			list: newList
+		}
+
+		return $http.post("/api/users/" + userId + "/lists", newItems).then(res => {
 			// return res.data;
 			console.log(res);
 			var list = res.data;
-			return $http.post(`/lists/${list.id}/foods`, newList)
+			return $http.post(`/lists/${list.id}/foods`, {list: newList})
 			.then(response => {
 				return response.data;
 			});

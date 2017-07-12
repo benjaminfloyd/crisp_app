@@ -8864,14 +8864,13 @@ NewListController.$inject = ["$stateParams", "$http", "listService", "$state", "
 function NewListController($stateParams, $http, listService, $state, $auth) {
 	var vm = this;
 	vm.user = $auth.user;
-	vm.list = {};
 	vm.items = [];
 	vm.addItem = addItem;
 	vm.newItem = '';
 	vm.newList = {};
 
 	vm.saveList = function () {
-		listService.saveList(vm.user.id, vm.list).then(function (res) {
+		listService.saveList(vm.user.id, vm.items).then(function (res) {
 			$state.go("home");
 		});
 	};
@@ -8880,7 +8879,6 @@ function NewListController($stateParams, $http, listService, $state, $auth) {
 		vm.items.push(vm.newItem);
 		vm.newItem = '';
 	};
-	vm.list = {};
 
 	function addItem() {}
 }
@@ -46487,11 +46485,16 @@ function listService($http) {
 	};
 
 	service.saveList = function (userId, newList) {
-		return $http.post("/api/users/" + userId + "/lists", newList).then(function (res) {
+		console.log(newList);
+		var newItems = {
+			list: newList
+		};
+
+		return $http.post("/api/users/" + userId + "/lists", newItems).then(function (res) {
 			// return res.data;
 			console.log(res);
 			var list = res.data;
-			return $http.post("/lists/" + list.id + "/foods", newList).then(function (response) {
+			return $http.post("/lists/" + list.id + "/foods", { list: newList }).then(function (response) {
 				return response.data;
 			});
 			// return res.data;
