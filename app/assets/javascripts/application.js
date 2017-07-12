@@ -10,11 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require foundation
-//= require jquery3
+//= require jquery
 //= require jquery_ujs
 //= require rails-ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+$('[data-app-dashboard-toggle-shrink]').on('click', function(e) {
+  e.preventDefault();
+  $(this).parents('.app-dashboard').toggleClass('shrink-medium').toggleClass('shrink-large');
+});
+

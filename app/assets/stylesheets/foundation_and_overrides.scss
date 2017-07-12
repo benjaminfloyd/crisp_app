@@ -52,4 +52,8 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-@import "users"
+@import "_settings";
+@import "navbar";
+@import "users";
+@import "home";
+@import "welcome";

@@ -6,4 +6,4 @@
   	template: usersTemplate
   };
 
-  angular.module("CrispApp").component("crispLogin",  usersComponent);
+  angular.module("CrispApp").component("userRegistration",  usersComponent);

@@ -1,8 +1,8 @@
 const angular = require("angular");
 
-loginService.$inject = ["$http"];
+usersService.$inject = ["$http"];
 
-function loginService ($http) {
+function usersService ($http) {
 	const service = this;
 
 	service.getAllUsers = function () {
@@ -12,8 +12,10 @@ function loginService ($http) {
 	};
 
 	service.getUser = function (id) {
+	
 		return $http.get("/user/" + id).then(res => {
-			return res.data;
+		
+			return res;
 		});
 	};
 
@@ -26,4 +28,4 @@ function loginService ($http) {
 	return service;
 }
 
-angular.module("CrispApp").service("crispLogin", loginService);
+angular.module("CrispApp").service("usersService", usersService);

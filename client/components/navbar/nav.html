@@ -1,0 +1,40 @@
+<div class="title-bar topbar-center-logo-mobile" data-responsive-toggle="topbar-center-logo" data-hide-for="medium">
+  <div class="title-bar-left">
+    <div class="title-bar-title"><img src="/crisp-logo-white.png" alt="Crisp! Logo" /></div>
+  </div>
+  <div class="title-bar-right">
+    <button class="menu-icon" type="button" data-toggle="topbar-center-logo"></button>
+  </div>
+</div>
+<!-- /mobile nav bar -->
+
+<!-- medium and larger nav bar -->
+<div class="top-bar topbar-center-logo" id="topbar-center-logo">
+  <div class="top-bar-left">
+    <ul class="menu vertical medium-horizontal">
+      <li><a href="#">One</a></li>
+      <li><a href="#">Two</a></li>
+      <li><a href="#">Three</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-center">
+    <a href="#"><img src="/crisp-logo-white.png" alt="Crisp!" height="50" width="100" ></a>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu vertical medium-horizontal">
+      <li><a href="#">Four</a></li>
+      <li><a href="#">Five</a></li>
+      <li><a href="#">Six</a></li>
+    </ul>
+  </div>
+</div>
+<div ng-show="!$ctrl.currentUser.id">
+  <p><a ui-sref="signIn">Sign in</a></p>
+  <p><a ui-sref="userRegistration">Sign up</a></p>
+</div>
+<div ng-show="$ctrl.currentUser.id">
+  <p>Signed in as {{$ctrl.currentUser.email}}</p>
+  <p><a ng-click='$ctrl.signOut()'>Log Out</a></p>
+  <p><a ui-sref="list({userId: $ctrl.currentUser.id})">Search List</a></p>
+  <p><a ui-sref="recipes({userId: $ctrl.currentUser.id})">Search Recipes</a></p>
+</div>
