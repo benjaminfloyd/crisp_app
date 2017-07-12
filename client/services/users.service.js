@@ -6,21 +6,21 @@ function usersService ($http) {
 	const service = this;
 
 	service.getAllUsers = function () {
-		return $http.get("/user").then(res => {
+		return $http.get("/api/users").then(res => {
 			return res.data;
 		});
 	};
 
 	service.getUser = function (id) {
 	
-		return $http.get("/user/" + id).then(res => {
+		return $http.get("/api/users/" + id).then(res => {
 		
 			return res;
 		});
 	};
 
 	service.saveUser = function (newUser) {
-		return $http.post("/user", newUser).then(res => {
+		return $http.post("/api/users", newUser).then(res => {
 			return res.data;
 		});
 	};

@@ -1,0 +1,18 @@
+  <div id="header">
+  <h1>Grocery list manager </h1>
+  <h2>Add an item below</h2>
+<form class="Grocery-list-form" ng-submit="$ctrl.addItem()">
+  <input id="inputText" type="item" ng-model="$ctrl.newItem" required="required" class="form-control"placeholder="enter grocery item">
+  <button type="submit"> <i class="fa fa-list-alt" aria-hidden="true"></i>add</button>
+  </div>
+</form>
+
+<ul id="list">
+
+    <ul class="list-group">
+        <li ng-repeat="item in $ctrl.items" class="list-group-item">
+            <span> {{ item }} </span>
+        </li>
+    </ul>
+
+</ul>

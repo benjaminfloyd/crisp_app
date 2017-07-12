@@ -55,12 +55,17 @@ function router ($stateProvider, $urlRouterProvider) {
 		.state("list", {
 			url: "/users/:userId/list/:listId",
 			template: "<user-list></user-list>",
-			params: {id: null, list: null},
+			params: {userId: null, listId: null},
 			resolve: {
         auth: function($auth) {
           return $auth.validateUser();
         }
       }
-		})
+    })
+    .state("newList", {
+			url: "/users/:userId/list/new",
+      template: "<new-list></new-list>",
+      params: {userId: null}
+		});
 	$urlRouterProvider.otherwise("/");
 }

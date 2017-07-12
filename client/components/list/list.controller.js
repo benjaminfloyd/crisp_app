@@ -2,21 +2,22 @@ ListController.$inject = ["listService", '$auth', '$state', "$stateParams", "$ht
 
 function ListController(listService, $auth, $state, $stateParams, $http) {
   const vm = this;
+  console.log($auth.user)
+  vm.user = $auth.user
   vm.list = {
     list: $stateParams.list
   };
   console.log(vm.list);
 
-  activate(); //run when the page loads
+  activate(); 
 
   function activate() {
+  } 
 
-  } //close Activate function
-
-  vm.saveToFavorites = function () {
+  vm.saveToNewList = function () {
     let userId = $stateParams.userId;
     let listId = $stateParams.listId;
-    listService.saveToFavorites(listId, userId)
+    listService.saveToNewList(listId, userId)
       .then(res => {
         vm.favorite = res.data;
       })
@@ -25,13 +26,13 @@ function ListController(listService, $auth, $state, $stateParams, $http) {
       });
   }
 
-  vm.deleteFromFavorites = function () {
-    listService.deleteFromFavorites(vm.favorite.id)
+  vm.deleteFromUserList = function () {
+    listService.deleteFromUserList(vm.list.id)
       .then(res => {
         console.log(res.data.message);
       })
       .catch(res => {
-        console.log('error deleting favorite');
+        console.log('error deleting list');
         console.log(res.data.error);
       })
   }
