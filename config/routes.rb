@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   post "/lists/:list_id/foods" => "foods#create"
-
+  
   namespace :api do
     resources :users do
-      resources :lists
+      resources :lists do
+        resources :foods
+        end
     end
   end
 

@@ -1,4 +1,4 @@
-class FoodsController < ApplicationController
+class Api::FoodsController < ApplicationController
     def create
         list_id = params[:list_id]
             

@@ -1596,6 +1596,14 @@ exports.TargetState = TargetState;
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(67);
+module.exports = angular;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -1615,7 +1623,7 @@ var TransitionHookScope;
 //# sourceMappingURL=interface.js.map
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1819,24 +1827,16 @@ exports.Param = Param;
 //# sourceMappingURL=param.js.map
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng_from_import = __webpack_require__(11);
+var ng_from_import = __webpack_require__(8);
 var ng_from_global = angular;
 exports.ng = (ng_from_import && ng_from_import.module) ? ng_from_import : ng_from_global;
 //# sourceMappingURL=angular.js.map
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(67);
-module.exports = angular;
-
 
 /***/ }),
 /* 12 */
@@ -1945,7 +1945,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module transition
  */
 /** for typedoc */
-var interface_1 = __webpack_require__(8);
+var interface_1 = __webpack_require__(9);
 var common_1 = __webpack_require__(0);
 var strings_1 = __webpack_require__(5);
 var predicates_1 = __webpack_require__(1);
@@ -2499,13 +2499,13 @@ var coreservices_1 = __webpack_require__(3);
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
 var hof_1 = __webpack_require__(2);
-var interface_1 = __webpack_require__(8); // has or is using
+var interface_1 = __webpack_require__(9); // has or is using
 var transitionHook_1 = __webpack_require__(13);
 var hookRegistry_1 = __webpack_require__(25);
 var hookBuilder_1 = __webpack_require__(31);
 var pathFactory_1 = __webpack_require__(19);
 var targetState_1 = __webpack_require__(7);
-var param_1 = __webpack_require__(9);
+var param_1 = __webpack_require__(10);
 var resolvable_1 = __webpack_require__(14);
 var resolveContext_1 = __webpack_require__(20);
 /** @hidden */
@@ -3515,7 +3515,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(0);
 var hof_1 = __webpack_require__(2);
 var predicates_1 = __webpack_require__(1);
-var param_1 = __webpack_require__(9);
+var param_1 = __webpack_require__(10);
 var strings_1 = __webpack_require__(5);
 /** @hidden */
 function quoteRegExp(string, param) {
@@ -4245,7 +4245,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */ /** for typedoc */
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
-var interface_1 = __webpack_require__(8); // has or is using
+var interface_1 = __webpack_require__(9); // has or is using
 var glob_1 = __webpack_require__(17);
 /**
  * Determines if the given state matches the matchCriteria
@@ -4404,7 +4404,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @module path */ /** for typedoc */
 var common_1 = __webpack_require__(0);
 var hof_1 = __webpack_require__(2);
-var param_1 = __webpack_require__(9);
+var param_1 = __webpack_require__(10);
 /**
  * @internalapi
  *
@@ -4637,7 +4637,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module transition
  */
 /** for typedoc */
-var interface_1 = __webpack_require__(8);
+var interface_1 = __webpack_require__(9);
 var transition_1 = __webpack_require__(18);
 var hookRegistry_1 = __webpack_require__(25);
 var coreResolvables_1 = __webpack_require__(73);
@@ -4889,7 +4889,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @preferred
  */
 /** for typedoc */
-var angular_1 = __webpack_require__(10);
+var angular_1 = __webpack_require__(11);
 var core_1 = __webpack_require__(4);
 var views_1 = __webpack_require__(30);
 var templateFactory_1 = __webpack_require__(89);
@@ -5120,7 +5120,7 @@ exports.Ng1ViewConfig = Ng1ViewConfig;
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
-var interface_1 = __webpack_require__(8);
+var interface_1 = __webpack_require__(9);
 var transitionHook_1 = __webpack_require__(13);
 /**
  * This class returns applicable TransitionHooks for a specific Transition instance.
@@ -6096,7 +6096,7 @@ var pathNode_1 = __webpack_require__(26);
 var transitionService_1 = __webpack_require__(28);
 var rejectFactory_1 = __webpack_require__(12);
 var targetState_1 = __webpack_require__(7);
-var param_1 = __webpack_require__(9);
+var param_1 = __webpack_require__(10);
 var glob_1 = __webpack_require__(17);
 var resolveContext_1 = __webpack_require__(20);
 var lazyLoad_1 = __webpack_require__(47);
@@ -6858,7 +6858,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
 var urlMatcher_1 = __webpack_require__(21);
-var param_1 = __webpack_require__(9);
+var param_1 = __webpack_require__(10);
 var paramTypes_1 = __webpack_require__(33);
 /**
  * Factory for [[UrlMatcher]] instances.
@@ -8993,11 +8993,11 @@ function UserController($stateParams, usersService) {
 
   function activate() {
     console.log($stateParams);
-    usersService.getUser($stateParams.id).then(function (res) {
-      debugger;
+    usersService.getUser($stateParams.userId).then(function (res) {
+      console.log(res);
+      console.log(res.user);
       vm.user = res.user;
-      vm.list = res.list;
-      console.log(res.list);
+      vm.lists = res.lists;
     });
   }
 }
@@ -9023,7 +9023,8 @@ __webpack_require__(63);
 __webpack_require__(112);
 __webpack_require__(64);
 __webpack_require__(114);
-module.exports = __webpack_require__(115);
+__webpack_require__(115);
+module.exports = __webpack_require__(116);
 
 
 /***/ }),
@@ -9033,7 +9034,7 @@ module.exports = __webpack_require__(115);
 "use strict";
 
 
-var angular = __webpack_require__(11);
+var angular = __webpack_require__(8);
 __webpack_require__(68);
 __webpack_require__(97);
 __webpack_require__(98);
@@ -42969,7 +42970,7 @@ function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
 Object.defineProperty(exports, "__esModule", { value: true });
-__export(__webpack_require__(9));
+__export(__webpack_require__(10));
 __export(__webpack_require__(33));
 __export(__webpack_require__(34));
 __export(__webpack_require__(27));
@@ -43415,7 +43416,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @preferred
  * @module transition
  */ /** for typedoc */
-__export(__webpack_require__(8));
+__export(__webpack_require__(9));
 __export(__webpack_require__(31));
 __export(__webpack_require__(25));
 __export(__webpack_require__(12));
@@ -43566,7 +43567,7 @@ exports.UIRouterPluginBase = UIRouterPluginBase;
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module view */
 /** for typedoc */
-var angular_1 = __webpack_require__(10);
+var angular_1 = __webpack_require__(11);
 var core_1 = __webpack_require__(4);
 /**
  * Service which manages loading of templates from a ViewConfig.
@@ -44260,7 +44261,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @preferred
  * @module directives
  */ /** for typedoc */
-var angular_1 = __webpack_require__(10);
+var angular_1 = __webpack_require__(11);
 var core_1 = __webpack_require__(4);
 /** @hidden */
 function parseStateRef(ref) {
@@ -44828,7 +44829,7 @@ angular_1.ng.module('ui.router.state')
 
 /** @module ng1 */ /** for typedoc */
 Object.defineProperty(exports, "__esModule", { value: true });
-var angular_1 = __webpack_require__(10);
+var angular_1 = __webpack_require__(11);
 /**
  * `isState` Filter: truthy if the current state is the parameter
  *
@@ -44883,8 +44884,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @ng1api
  * @module directives
  */ /** for typedoc */
-var angular_1 = __webpack_require__(10);
-var angular_2 = __webpack_require__(11);
+var angular_1 = __webpack_require__(11);
+var angular_2 = __webpack_require__(8);
 var core_1 = __webpack_require__(4);
 var views_1 = __webpack_require__(30);
 var services_1 = __webpack_require__(29);
@@ -45176,7 +45177,7 @@ angular_1.ng.module('ui.router.state').directive('uiView', $ViewDirectiveFill);
 
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module ng1 */ /** */
-var angular_1 = __webpack_require__(10);
+var angular_1 = __webpack_require__(11);
 /** @hidden */
 function $ViewScrollProvider() {
     var useAnchorScroll = false;
@@ -46276,7 +46277,7 @@ angular.module("CrispApp").component("crispHome", homeComponent);
 /* 101 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"promo-hero promo-hero-bg-image\">\n  <div class=\"promo-hero-content\">\n    <h1 class=\"promo-hero-title\">Where Great Meals Begin! </h1>\n    <p class=\"promo-hero-description hide-for-small-only\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor ante, varius eget lacinia porta, faucibus ut eros. Donec quis dui id felis pharetra fermentum.</p>\n    <div class=\"promo-hero-ctas\">\n      <a href=\"#\" class=\"promo-section-cta button primary\">Order Now</a>\n      <a href=\"#\" class=\"promo-section-cta button white-hollow\">Learn More</a>\n    </div>\n  </div>\n</div>\n<div>\n    <img src=\"/crisp-Infographic.png\" alt=\"Crisp!\" height=\"100px\" width=\"100px\">\n</div>\n";
+module.exports = "<div class=\"promo-hero promo-hero-bg-image\">\n  <div class=\"promo-hero-content\">\n    <h1 class=\"promo-hero-title\">Where Great Meals Begin! </h1>\n    <p class=\"promo-hero-description hide-for-small-only\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor ante, varius eget lacinia porta, faucibus ut eros. Donec quis dui id felis pharetra fermentum.</p>\n    <div class=\"promo-hero-ctas\">\n      <a href=\"#\" class=\"promo-section-cta button primary\">Order Now</a>\n      <a href=\"#\" class=\"promo-section-cta button white-hollow\">Learn More</a>\n    </div>\n  </div>\n</div>\n<div >\n    <img ng-src=\"../crisp-Infographic.png{{hash}}\" alt=\"Crisp!\" height=\"100px\" width=\"100px\">\n    \n</div>\n\n<header class=\"hero-search-filter\">\n  <div class=\"hero-search-filter-content\">\n    <img class=\"hero-search-filter-logo\" src=\"xxxHTMLLINKxxx0.5248590650590970.9159634774785421xxx\" alt=\"\" />\n    <h1 class=\"promo-hero-title\">Where Great Meals Begin! </h1>\n    <form class=\"hero-search-filter-form\" action=\"\">\n      <label for=\"findtext\">Find</label>\n      <input id=\"findtext\" class=\"hero-search-filter-form-find\" type=\"text\" />\n      <div class=\"divider\">&nbsp;</div>\n      <label for=\"findlocate\">Near</label>\n      <input id=\"findlocate\" class=\"hero-search-filter-form-near\" type=\"text\" />\n      <button class=\"button\"><i class=\"fa fa-search\"></i></button>\n    </form>\n    <ul class=\"hero-search-filter-menu menu align-center\">\n      <li><a href=\"#\"><i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i> </a></li>\n      <li><a href=\"#\"><i class=\"fa fa-glass\" aria-hidden=\"true\"></i> Nightlife</a></li>\n      <li><a href=\"#\"><i class=\"fa fa-wrench\" aria-hidden=\"true\"></i> Home Services</a></li>\n      <li><a href=\"#\"><i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i> Delivery</a></li>\n    </ul>\n  </div>\n</header>\n\n";
 
 /***/ }),
 /* 102 */
@@ -46456,7 +46457,7 @@ angular.module("CrispApp").component("crispUser", userComponent);
 /* 113 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Hello World</h1>\n\n<div class=\"app-dashboard shrink-medium\">\n  <div class=\"row expanded app-dashboard-top-nav-bar\">\n    <div class=\"columns medium-2\">\n      <button data-toggle=\"app-dashboard-sidebar\" class=\"menu-icon hide-for-medium\"></button>\n      <a class=\"app-dashboard-logo\">Foundation</a>\n    </div>\n    <div class=\"columns show-for-medium\">\n      <div class=\"app-dashboard-search-bar-container\">\n        <input class=\"app-dashboard-search\" type=\"search\" placeholder=\"Search\">\n        <i class=\"app-dashboard-search-icon fa fa-search\"></i>\n      </div>\n    </div>\n    <div class=\"columns shrink app-dashboard-top-bar-actions\">\n      <button href=\"#\" class=\"button hollow\">Logout</button>\n      <a href=\"#\" height=\"30\" width=\"30\" alt=\"\"><i class=\"fa fa-info-circle\"></i></a>\n    </div>\n  </div>\n\n  <div class=\"app-dashboard-body off-canvas-wrapper\">\n    <div id=\"app-dashboard-sidebar\" class=\"app-dashboard-sidebar position-left off-canvas off-canvas-absolute reveal-for-medium\" data-off-canvas>\n      <div class=\"app-dashboard-sidebar-title-area\">\n        <div class=\"app-dashboard-close-sidebar\">\n          <h3 class=\"app-dashboard-sidebar-block-title\">Items</h3>\n          <!-- Close button -->\n          <button id=\"close-sidebar\" data-app-dashboard-toggle-shrink class=\"app-dashboard-sidebar-close-button show-for-medium\" aria-label=\"Close menu\" type=\"button\">\n            <span aria-hidden=\"true\"><a href=\"#\"><i class=\"large fa fa-angle-double-left\"></i></a></span>\n          </button>\n        </div>\n        <div class=\"app-dashboard-open-sidebar\">\n          <button id=\"open-sidebar\" data-app-dashboard-toggle-shrink class=\"app-dashboard-open-sidebar-button show-for-medium\" aria-label=\"open menu\" type=\"button\">\n            <span aria-hidden=\"true\"><a href=\"#\"><i class=\"large fa fa-angle-double-right\"></i></a></span>\n          </button>\n        </div>\n      </div>\n      <div class=\"app-dashboard-sidebar-inner\">\n        <ul class=\"menu vertical\">\n          <li><a href=\"#\" class=\"is-active\">\n            <i class=\"large fa fa-institution\"></i><span class=\"app-dashboard-sidebar-text\">Buildings</span>\n          </a></li>\n          <li><a>\n            <i class=\"large fa fa-hourglass\"></i><span class=\"app-dashboard-sidebar-text\">Time</span>\n          </a></li>\n          <li><a>\n            <i class=\"large fa fa-industry\"></i><span class=\"app-dashboard-sidebar-text\">Industry</span>\n          </a></li>\n          <li><a href=\"#\" class=\"is-active\">\n            <i class=\"large fa fa-institution\"></i><span class=\"app-dashboard-sidebar-text\">Buildings</span>\n          </a></li>\n          <li><a>\n            <i class=\"large fa fa-hourglass\"></i><span class=\"app-dashboard-sidebar-text\">Time</span>\n          </a></li>\n          <li><a>\n            <i class=\"large fa fa-industry\"></i><span class=\"app-dashboard-sidebar-text\">Industry</span>\n          </a></li>\n          <li><a href=\"#\" class=\"is-active\">\n            <i class=\"large fa fa-institution\"></i><span class=\"app-dashboard-sidebar-text\">Buildings</span>\n          </a></li>\n          <li><a>\n            <i class=\"large fa fa-hourglass\"></i><span class=\"app-dashboard-sidebar-text\">Time</span>\n          </a></li>\n          <li><a>\n            <i class=\"large fa fa-industry\"></i><span class=\"app-dashboard-sidebar-text\">Industry</span>\n          </a></li>\n        </ul>\n      </div>\n    </div>\n\n    <div class=\"app-dashboard-body-content off-canvas-content\" data-off-canvas-content>\n      <h2 class=\"text-center\">Grocery List</h2>\n      ng-show list\n\n    </div>\n  </div>\n</div>\n\n\n<!-- <a ui-sref=\"home\"> Go Back </a>\n\n<h1>{{$ctrl.user.name}}</h1>\n<img ng-src=\"{{$ctrl.user.photo_url}}\"/>\n<h3>{{$ctrl.user.zip_code}}</h3>\n\n<ul>\n \n</ul> -->\n";
+module.exports = "\n <a ui-sref=\"home\"> Go Back </a>\n    <div ng-repeat=\"list in $ctrl.lists\" class=\"app-dashboard-body-content off-canvas-content\" data-off-canvas-content>\n      <h2 class=\"text-center\">Grocery List</h2>\n      {{list.title}}\n      <div ng-repeat=\"food in list.foods\">\n        {{food.name}}\n      </div>\n\n    \n";
 
 /***/ }),
 /* 114 */
@@ -46465,7 +46466,44 @@ module.exports = "<h1>Hello World</h1>\n\n<div class=\"app-dashboard shrink-medi
 "use strict";
 
 
-var angular = __webpack_require__(11);
+var angular = __webpack_require__(8);
+
+foodService.$inject = ["$http"];
+
+function foodService($http) {
+	var service = this;
+
+	// service.getAllFood = function (listId) {
+	// 	return $http.get("/api/users/" + userId + "/lists").then(res => {
+	// 		return res.data;
+	// 	});
+	// };
+
+	service.getFood = function (foodId) {
+		return $http.get("/api/users/" + userId + "/lists" + id).then(function (res) {
+			return res;
+		});
+	};
+
+	service.saveList = function (userId, newList) {
+		return $http.post("/api/users/" + userId, newList).then(function (res) {
+			return res;
+		});
+	};
+
+	return service;
+}
+
+angular.module("CrispApp").service("foodService", foodService);
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var angular = __webpack_require__(8);
 
 listService.$inject = ["$http"];
 
@@ -46507,13 +46545,13 @@ function listService($http) {
 angular.module("CrispApp").service("listService", listService);
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var angular = __webpack_require__(11);
+var angular = __webpack_require__(8);
 
 usersService.$inject = ["$http"];
 
@@ -46527,10 +46565,8 @@ function usersService($http) {
 	};
 
 	service.getUser = function (id) {
-
 		return $http.get("/api/users/" + id).then(function (res) {
-
-			return res;
+			return res.data;
 		});
 	};
 

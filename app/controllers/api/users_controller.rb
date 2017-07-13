@@ -1,17 +1,25 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
 
     def index
         @users = User.all
         render json: @users 
     end 
 
-    def show
-        @user = User.find(params[:userId])
-        @list = @user.list
+    def show 
+        puts params
+        @user = User.find(params[:id])
+
+        @lists = @user.lists
+       
+        lists_w_foods = @lists.map do |list|
+            { title: list.title, foods: list.foods }
+        end
         puts @user
+        puts @lists
+
         render json: {
             user: @user,
-            list: @list
+            lists: lists_w_foods
         }    
     end 
 
@@ -21,13 +29,13 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user = User.find(params[:userId])
+        @user = User.find(params[:id])
         @user.update(user_params)
         redirect_to user_path(@user)
     end
 
     def destroy
-        @user = User.find(params[:userId])
+        @user = User.find(params[:id])
         @user.destroy
         redirect_to users_path
     end

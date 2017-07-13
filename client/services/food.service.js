@@ -26,4 +26,4 @@ function foodService ($http) {
 	return service;
 }
 
-angular.module("CrispApp").service("listService", listService);
+angular.module("CrispApp").service("foodService", foodService);

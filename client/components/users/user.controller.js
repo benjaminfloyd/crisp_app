@@ -6,11 +6,11 @@
 
       function activate(){
         console.log($stateParams)
-          usersService.getUser($stateParams.id).then(res =>{
-            debugger
+          usersService.getUser($stateParams.userId).then((res) => { 
+            console.log(res)
+            console.log(res.user)
               vm.user = res.user;
-              vm.list = res.list;
-              console.log(res.list);
+              vm.lists = res.lists;
           });
       }
   	

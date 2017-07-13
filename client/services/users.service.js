@@ -12,10 +12,8 @@ function usersService ($http) {
 	};
 
 	service.getUser = function (id) {
-	
-		return $http.get("/api/users/" + id).then(res => {
-		
-			return res;
+		return $http.get(`/api/users/${id}`).then(res => {
+			return res.data;
 		});
 	};
 
