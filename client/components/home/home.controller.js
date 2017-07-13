@@ -8,8 +8,9 @@
 
       }
 
-      vm.searchRecipe = function(searchTerm){
-        recipeService.searchRecipe(searchTerm)
+      vm.searchRecipe = function(){
+        console.log(vm.searchTerm)
+        recipeService.searchRecipe(vm.searchTerm)
       }
 
   //     	vm.addItem = function() {

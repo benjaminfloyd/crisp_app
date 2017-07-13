@@ -1,6 +1,6 @@
-NewListController.$inject = ["$stateParams", "$http", "listService", "$state","$auth"];
+NewListController.$inject = ["$stateParams", "$http", "listService", "$state","$auth","recipeService"];
 
-function NewListController($stateParams, $http, listService, $state, $auth) {
+function NewListController($stateParams, $http, listService, $state, $auth, recipeService) {
     var vm = this;
     vm.user = $auth.user;
 	vm.items = [];
@@ -22,6 +22,11 @@ function NewListController($stateParams, $http, listService, $state, $auth) {
 	function addItem(){
 
 	}
+
+	vm.searchRecipe = function(){
+        console.log(vm.searchTerm)
+        recipeService.searchRecipe(vm.searchTerm)
+      }
 
 }
 

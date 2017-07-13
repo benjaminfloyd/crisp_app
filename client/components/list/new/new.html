@@ -1,4 +1,10 @@
   <div id="header">
+      <form class="hero-search-filter-form" ng-submit="$ctrl.searchRecipe()">
+      <label for="findtext">Find</label>
+      <input ng-model="$ctrl.searchTerm" id="findtext" class="hero-search-filter-form-find" type="text" />
+      <button type="submit" class="button"><i class="fa fa-cutlery"></i></button>
+    </form>
+    <ul class="hero-search-filter-menu menu align-center">
   <h1>Grocery list manager </h1>
   <h2>Add an item below</h2>
 <form class="Grocery-list-form" ng-submit="$ctrl.addItem()">
@@ -16,3 +22,5 @@
     </ul>
     <button type="submit" ng-click="$ctrl.saveList()" class="button">Submit</button>
 </div>
+
+

@@ -8799,8 +8799,9 @@ function HomeController($stateParams, recipeService) {
 
   function activate() {}
 
-  vm.searchRecipe = function (searchTerm) {
-    recipeService.searchRecipe(searchTerm);
+  vm.searchRecipe = function () {
+    console.log(vm.searchTerm);
+    recipeService.searchRecipe(vm.searchTerm);
   };
 
   //     	vm.addItem = function() {
@@ -8869,9 +8870,9 @@ exports.default = ListController;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-NewListController.$inject = ["$stateParams", "$http", "listService", "$state", "$auth"];
+NewListController.$inject = ["$stateParams", "$http", "listService", "$state", "$auth", "recipeService"];
 
-function NewListController($stateParams, $http, listService, $state, $auth) {
+function NewListController($stateParams, $http, listService, $state, $auth, recipeService) {
 	var vm = this;
 	vm.user = $auth.user;
 	vm.items = [];
@@ -8891,6 +8892,11 @@ function NewListController($stateParams, $http, listService, $state, $auth) {
 	};
 
 	function addItem() {}
+
+	vm.searchRecipe = function () {
+		console.log(vm.searchTerm);
+		recipeService.searchRecipe(vm.searchTerm);
+	};
 }
 
 exports.default = NewListController;
@@ -46350,7 +46356,7 @@ angular.module('CrispApp').component('newList', newListComponent);
 /* 105 */
 /***/ (function(module, exports) {
 
-module.exports = "  <div id=\"header\">\n  <h1>Grocery list manager </h1>\n  <h2>Add an item below</h2>\n<form class=\"Grocery-list-form\" ng-submit=\"$ctrl.addItem()\">\n  <input id=\"inputText\" type=\"item\" ng-model=\"$ctrl.newItem\" required=\"required\" class=\"form-control\"placeholder=\"enter grocery item\">\n  <button type=\"submit\"> <i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i>add</button>\n  </div>\n</form>\n<div>\n    <ul id=\"list\">\n        <ul class=\"list-group\">\n            <li ng-repeat=\"item in $ctrl.items\" class=\"list-group-item\">\n                <span> {{ item }} </span>\n            </li>\n        </ul>\n    </ul>\n    <button type=\"submit\" ng-click=\"$ctrl.saveList()\" class=\"button\">Submit</button>\n</div>\n";
+module.exports = "  <div id=\"header\">\n      <form class=\"hero-search-filter-form\" ng-submit=\"$ctrl.searchRecipe()\">\n      <label for=\"findtext\">Find</label>\n      <input ng-model=\"$ctrl.searchTerm\" id=\"findtext\" class=\"hero-search-filter-form-find\" type=\"text\" />\n      <button type=\"submit\" class=\"button\"><i class=\"fa fa-cutlery\"></i></button>\n    </form>\n    <ul class=\"hero-search-filter-menu menu align-center\">\n  <h1>Grocery list manager </h1>\n  <h2>Add an item below</h2>\n<form class=\"Grocery-list-form\" ng-submit=\"$ctrl.addItem()\">\n  <input id=\"inputText\" type=\"item\" ng-model=\"$ctrl.newItem\" required=\"required\" class=\"form-control\"placeholder=\"enter grocery item\">\n  <button type=\"submit\"> <i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i>add</button>\n  </div>\n</form>\n<div>\n    <ul id=\"list\">\n        <ul class=\"list-group\">\n            <li ng-repeat=\"item in $ctrl.items\" class=\"list-group-item\">\n                <span> {{ item }} </span>\n            </li>\n        </ul>\n    </ul>\n    <button type=\"submit\" ng-click=\"$ctrl.saveList()\" class=\"button\">Submit</button>\n</div>\n\n\n";
 
 /***/ }),
 /* 106 */
@@ -46571,9 +46577,10 @@ recipeService.$inject = ["$http"];
 function recipeService($http) {
 	var service = this;
 
-	service.searchRecipe = function (recipeSearched) {
-		var searchUrl = "http://api.yummly.com/v1/api/recipes?_app_id=3fa3ebcf&_app_key=a547eb1a914afed4c7c72587040d377c&q=" + recipeSearched;
+	service.searchRecipe = function (searchTerm) {
+		var searchUrl = "http://api.yummly.com/v1/api/recipes?_app_id=3fa3ebcf&_app_key=a547eb1a914afed4c7c72587040d377c&q=" + searchTerm;
 		return $http.get(searchUrl).then(function (response) {
+			console.log(searchTerm);
 			console.log("response is : ", response.data);
 			return response.data;
 		});
