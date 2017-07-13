@@ -7,6 +7,7 @@ function NewListController($stateParams, $http, listService, $state, $auth, reci
 	vm.addItem = addItem;
 	vm.newItem = '';
 	vm.newList = {};
+	vm.searchTerm = '';
 
 	vm.saveList = function () {
 		listService.saveList(vm.user.id, vm.items).then((res) => {
@@ -17,16 +18,16 @@ function NewListController($stateParams, $http, listService, $state, $auth, reci
 	vm.addItem = function() {
 		vm.items.push(vm.newItem);
 		vm.newItem = '';
-	}
+	};
 
 	function addItem(){
 
-	}
+	};
 
 	vm.searchRecipe = function(){
         console.log(vm.searchTerm)
         recipeService.searchRecipe(vm.searchTerm)
-      }
+    }
 
 }
 

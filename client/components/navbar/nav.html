@@ -1,4 +1,4 @@
-<div ng-show="!$ctrl.currentUser.id" class="title-bar topbar-center-logo-mobile" data-responsive-toggle="topbar-center-logo" data-hide-for="medium">
+<div class="title-bar topbar-center-logo-mobile" data-responsive-toggle="topbar-center-logo" data-hide-for="medium">
   <div class="title-bar-left">
      <!-- <div class="title-bar-title"><img src="http://i.imgur.com/FKejd75" alt="Crisp! Logo" /></div>  -->
   </div>
@@ -9,7 +9,7 @@
 <!-- /mobile nav bar -->
 
 <!-- medium and larger nav bar -->
-<div ng-show="!$ctrl.currentUser.id" class="top-bar topbar-center-logo" id="topbar-center-logo">
+<div class="top-bar topbar-center-logo" id="topbar-center-logo">
   <div class="top-bar-left">
     <ul class="menu vertical medium-horizontal">
       <li><a ui-sref="home">Home</a></li>
@@ -21,11 +21,11 @@
   <div class="top-bar-center">
      <!-- <a ui-serf="home"><img url="http://imgur.com/FKejd75" alt="Crisp!" height="50" width="100" ></a>  -->
   </div>
-  <div ng-show="!$ctrl.currentUser.id" class="top-bar-right">
+  <div class="top-bar-right">
     <ul class="menu vertical medium-horizontal">
-      <li><a href="#">Four</a></li>
       <li><a ng-click='$ctrl.signOut()'>Log Out</a></li>
-      <li>Signed in as {{$ctrl.currentUser.email}}</li>
+      <li>{{$ctrl.currentUser.email}}</li>
+      <li><a href="#"></a></li>
     </ul>
   </div>
 </div>

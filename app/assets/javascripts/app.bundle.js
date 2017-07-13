@@ -8868,35 +8868,36 @@ exports.default = ListController;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+				value: true
 });
 NewListController.$inject = ["$stateParams", "$http", "listService", "$state", "$auth", "recipeService"];
 
 function NewListController($stateParams, $http, listService, $state, $auth, recipeService) {
-	var vm = this;
-	vm.user = $auth.user;
-	vm.items = [];
-	vm.addItem = addItem;
-	vm.newItem = '';
-	vm.newList = {};
+				var vm = this;
+				vm.user = $auth.user;
+				vm.items = [];
+				vm.addItem = addItem;
+				vm.newItem = '';
+				vm.newList = {};
+				vm.searchTerm = '';
 
-	vm.saveList = function () {
-		listService.saveList(vm.user.id, vm.items).then(function (res) {
-			$state.go("home");
-		});
-	};
+				vm.saveList = function () {
+								listService.saveList(vm.user.id, vm.items).then(function (res) {
+												$state.go("home");
+								});
+				};
 
-	vm.addItem = function () {
-		vm.items.push(vm.newItem);
-		vm.newItem = '';
-	};
+				vm.addItem = function () {
+								vm.items.push(vm.newItem);
+								vm.newItem = '';
+				};
 
-	function addItem() {}
+				function addItem() {};
 
-	vm.searchRecipe = function () {
-		console.log(vm.searchTerm);
-		recipeService.searchRecipe(vm.searchTerm);
-	};
+				vm.searchRecipe = function () {
+								console.log(vm.searchTerm);
+								recipeService.searchRecipe(vm.searchTerm);
+				};
 }
 
 exports.default = NewListController;
@@ -46356,7 +46357,7 @@ angular.module('CrispApp').component('newList', newListComponent);
 /* 105 */
 /***/ (function(module, exports) {
 
-module.exports = "  <div id=\"header\">\n      <form class=\"hero-search-filter-form\" ng-submit=\"$ctrl.searchRecipe()\">\n      <label for=\"findtext\">Find</label>\n      <input ng-model=\"$ctrl.searchTerm\" id=\"findtext\" class=\"hero-search-filter-form-find\" type=\"text\" />\n      <button type=\"submit\" class=\"button\"><i class=\"fa fa-cutlery\"></i></button>\n    </form>\n    <ul class=\"hero-search-filter-menu menu align-center\">\n  <h1>Grocery list manager </h1>\n  <h2>Add an item below</h2>\n<form class=\"Grocery-list-form\" ng-submit=\"$ctrl.addItem()\">\n  <input id=\"inputText\" type=\"item\" ng-model=\"$ctrl.newItem\" required=\"required\" class=\"form-control\"placeholder=\"enter grocery item\">\n  <button type=\"submit\"> <i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i>add</button>\n  </div>\n</form>\n<div>\n    <ul id=\"list\">\n        <ul class=\"list-group\">\n            <li ng-repeat=\"item in $ctrl.items\" class=\"list-group-item\">\n                <span> {{ item }} </span>\n            </li>\n        </ul>\n    </ul>\n    <button type=\"submit\" ng-click=\"$ctrl.saveList()\" class=\"button\">Submit</button>\n</div>\n\n\n";
+module.exports = "  <div ng-show=\"!$ctrl.currentUser.id\" id=\"header\">\n      <form class=\"hero-search-filter-form\" ng-submit=\"$ctrl.searchRecipe()\">\n      <label for=\"findtext\">Find</label>\n      <input ng-model=\"$ctrl.searchTerm\" id=\"findtext\" class=\"hero-search-filter-form-find\" type=\"text\" />\n      <button type=\"submit\" class=\"button\"><i class=\"fa fa-cutlery\"></i></button>\n    </form>\n    <ul class=\"hero-search-filter-menu menu align-center\">\n  <h1>Grocery list manager </h1>\n  <h2>Add an item below</h2>\n<form class=\"Grocery-list-form\" ng-submit=\"$ctrl.addItem()\">\n  <input id=\"inputText\" type=\"item\" ng-model=\"$ctrl.newItem\" required=\"required\" class=\"form-control\"placeholder=\"enter grocery item\">\n  <button type=\"submit\"> <i class=\"fa fa-list-alt\" aria-hidden=\"true\"></i>add</button>\n  </div>\n</form>\n<div>\n    <ul id=\"list\">\n        <ul class=\"list-group\">\n            <li ng-repeat=\"item in $ctrl.items\" class=\"list-group-item\">\n                <span> {{ item }} </span>\n            </li>\n        </ul>\n    </ul>\n    <button type=\"submit\" ng-click=\"$ctrl.saveList()\" class=\"button\">Submit</button>\n</div>\n\n\n";
 
 /***/ }),
 /* 106 */
@@ -46386,7 +46387,7 @@ angular.module("CrispApp").component("crispNav", navComponent);
 /* 107 */
 /***/ (function(module, exports) {
 
-module.exports = "<div ng-show=\"!$ctrl.currentUser.id\" class=\"title-bar topbar-center-logo-mobile\" data-responsive-toggle=\"topbar-center-logo\" data-hide-for=\"medium\">\n  <div class=\"title-bar-left\">\n     <!-- <div class=\"title-bar-title\"><img src=\"http://i.imgur.com/FKejd75\" alt=\"Crisp! Logo\" /></div>  -->\n  </div>\n  <div class=\"title-bar-right\">\n    <button class=\"menu-icon\" type=\"button\" data-toggle=\"topbar-center-logo\"></button>\n  </div>\n</div>\n<!-- /mobile nav bar -->\n\n<!-- medium and larger nav bar -->\n<div ng-show=\"!$ctrl.currentUser.id\" class=\"top-bar topbar-center-logo\" id=\"topbar-center-logo\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a ui-sref=\"home\">Home</a></li>\n      <li><a ui-sref=\"userRegistration\">Sign up</a></li>\n      <li><a ui-sref=\"signIn\">Sign in</a></li>\n    </ul>\n\n  </div>\n  <div class=\"top-bar-center\">\n     <!-- <a ui-serf=\"home\"><img url=\"http://imgur.com/FKejd75\" alt=\"Crisp!\" height=\"50\" width=\"100\" ></a>  -->\n  </div>\n  <div ng-show=\"!$ctrl.currentUser.id\" class=\"top-bar-right\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a href=\"#\">Four</a></li>\n      <li><a ng-click='$ctrl.signOut()'>Log Out</a></li>\n      <li>Signed in as {{$ctrl.currentUser.email}}</li>\n    </ul>\n  </div>\n</div>\n<!-- <div ng-show=\"!$ctrl.currentUser.id\">\n  <p><a ui-sref=\"signIn\">Sign in</a></p>\n  <p><a ui-sref=\"userRegistration\">Sign up</a></p>\n</div>\n<div ng-show=\"$ctrl.currentUser.id\">\n  <p>Signed in as {{$ctrl.currentUser.email}}</p>\n  <p><a ng-click='$ctrl.signOut()'>Log Out</a></p>\n  <p><a ui-sref=\"list({userId: $ctrl.currentUser.id})\">Search List</a></p>\n  <p><a ui-sref=\"recipes({userId: $ctrl.currentUser.id})\">Search Recipes</a></p>\n</div> -->";
+module.exports = "<div class=\"title-bar topbar-center-logo-mobile\" data-responsive-toggle=\"topbar-center-logo\" data-hide-for=\"medium\">\n  <div class=\"title-bar-left\">\n     <!-- <div class=\"title-bar-title\"><img src=\"http://i.imgur.com/FKejd75\" alt=\"Crisp! Logo\" /></div>  -->\n  </div>\n  <div class=\"title-bar-right\">\n    <button class=\"menu-icon\" type=\"button\" data-toggle=\"topbar-center-logo\"></button>\n  </div>\n</div>\n<!-- /mobile nav bar -->\n\n<!-- medium and larger nav bar -->\n<div class=\"top-bar topbar-center-logo\" id=\"topbar-center-logo\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a ui-sref=\"home\">Home</a></li>\n      <li><a ui-sref=\"userRegistration\">Sign up</a></li>\n      <li><a ui-sref=\"signIn\">Sign in</a></li>\n    </ul>\n\n  </div>\n  <div class=\"top-bar-center\">\n     <!-- <a ui-serf=\"home\"><img url=\"http://imgur.com/FKejd75\" alt=\"Crisp!\" height=\"50\" width=\"100\" ></a>  -->\n  </div>\n  <div class=\"top-bar-right\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a ng-click='$ctrl.signOut()'>Log Out</a></li>\n      <li>{{$ctrl.currentUser.email}}</li>\n      <li><a href=\"#\"></a></li>\n    </ul>\n  </div>\n</div>\n<!-- <div ng-show=\"!$ctrl.currentUser.id\">\n  <p><a ui-sref=\"signIn\">Sign in</a></p>\n  <p><a ui-sref=\"userRegistration\">Sign up</a></p>\n</div>\n<div ng-show=\"$ctrl.currentUser.id\">\n  <p>Signed in as {{$ctrl.currentUser.email}}</p>\n  <p><a ng-click='$ctrl.signOut()'>Log Out</a></p>\n  <p><a ui-sref=\"list({userId: $ctrl.currentUser.id})\">Search List</a></p>\n  <p><a ui-sref=\"recipes({userId: $ctrl.currentUser.id})\">Search Recipes</a></p>\n</div> -->";
 
 /***/ }),
 /* 108 */
