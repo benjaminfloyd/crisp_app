@@ -1,11 +1,22 @@
- HomeController.$inject = ["$stateParams"];
-  function HomeController($stateParams){
+ HomeController.$inject = ["$stateParams","recipeService"];
+
+  function HomeController($stateParams,recipeService ){
       const vm = this;
+      vm.searchTerm = '';
 
-      activate();
+      function activate(){ 
 
-      function activate(){          
       }
+
+      vm.searchRecipe = function(searchTerm){
+        recipeService.searchRecipe(searchTerm)
+      }
+
+  //     	vm.addItem = function() {
+	// 	vm.items.push(vm.newItem);
+	// 	vm.newItem = '';
+	// }
+
   	
     }
   export default HomeController;

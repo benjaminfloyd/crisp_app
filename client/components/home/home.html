@@ -3,10 +3,10 @@
     <h1 class="promo-hero-title">Where Great Meals Begin! </h1>
     <p class="promo-hero-description hide-for-small-only"></p>
     <div class="hero-search-filter-content">
-    <form class="hero-search-filter-form" action="">
+    <form class="hero-search-filter-form" ng-submit="$ctrl.searchRecipe()">
       <label for="findtext">Find</label>
-      <input id="findtext" class="hero-search-filter-form-find" type="text" />
-      <button class="button"><i class="fa fa-cutlery"></i></button>
+      <input ng-model="$ctrl.searchTerm" id="findtext" class="hero-search-filter-form-find" type="text" />
+      <button type="submit" class="button"><i class="fa fa-cutlery"></i></button>
     </form>
     <ul class="hero-search-filter-menu menu align-center">
       
@@ -19,5 +19,3 @@
   </div>
 </div>
 
-
-  
