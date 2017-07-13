@@ -46532,7 +46532,7 @@ function listService($http) {
 			// return res.data;
 			console.log(res);
 			var list = res.data;
-			return $http.post("/lists/" + list.id + "/foods", { list: newList }).then(function (response) {
+			return $http.post("api/lists/" + list.id + "/foods", { list: newList }).then(function (response) {
 				return response.data;
 			});
 			// return res.data;

@@ -27,7 +27,7 @@ function listService ($http) {
 			// return res.data;
 			console.log(res);
 			var list = res.data;
-			return $http.post(`/lists/${list.id}/foods`, {list: newList})
+			return $http.post(`api/lists/${list.id}/foods`, {list: newList})
 			.then(response => {
 				return response.data;
 			});

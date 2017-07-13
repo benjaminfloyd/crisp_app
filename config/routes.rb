@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   
   namespace :api do
     resources :users do
-      resources :lists do
-        resources :foods
-        end
+      resources :lists
+    end
+    resources :lists, only: [] do
+      resources :foods
     end
   end
 
