@@ -14,7 +14,8 @@ function UserSessionsController($auth, $state){
           // handle success response
           vm.current_user_id = response.id;
           console.log('successful login');
-          $state.go('home');
+          console.log(response.id);
+          $state.go('users', {userId: response.id}); // it was userId not id, lol it works now though
         })
         .catch(function(response) {
           // handle error response

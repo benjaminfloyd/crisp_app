@@ -24,11 +24,7 @@ function router ($stateProvider, $urlRouterProvider) {
 		.state("home", {
 			url: "/",
 			template: "<crisp-home></crisp-home>",
-			resolve: {
-        auth: function($auth) {
-          return $auth.validateUser();
-        }
-			}
+			
 		})
 		.state("signIn", {
       url: "/sign_in",
@@ -40,7 +36,12 @@ function router ($stateProvider, $urlRouterProvider) {
     })
 		.state("users", {
 			url: "/users/:userId",
-			template: "<crisp-user></crisp-user>"
+      template: "<crisp-user></crisp-user>",
+      resolve: {
+        auth: function($auth) {
+          return $auth.validateUser();
+        }
+			}
     })
     
     .state("lists", {

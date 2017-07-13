@@ -8940,7 +8940,8 @@ function UserSessionsController($auth, $state) {
       // handle success response
       vm.current_user_id = response.id;
       console.log('successful login');
-      $state.go('home');
+      console.log(response.id);
+      $state.go('users', { userId: response.id }); // it was userId not id, lol it works now though
     }).catch(function (response) {
       // handle error response
       console.log('error logging in: ');
@@ -9055,12 +9056,8 @@ router.$inject = ["$stateProvider", "$urlRouterProvider"];
 function router($stateProvider, $urlRouterProvider) {
   $stateProvider.state("home", {
     url: "/",
-    template: "<crisp-home></crisp-home>",
-    resolve: {
-      auth: function auth($auth) {
-        return $auth.validateUser();
-      }
-    }
+    template: "<crisp-home></crisp-home>"
+
   }).state("signIn", {
     url: "/sign_in",
     template: "<sign-in></sign-in>"
@@ -9069,7 +9066,12 @@ function router($stateProvider, $urlRouterProvider) {
     template: "<user-registration></user-registration>"
   }).state("users", {
     url: "/users/:userId",
-    template: "<crisp-user></crisp-user>"
+    template: "<crisp-user></crisp-user>",
+    resolve: {
+      auth: function auth($auth) {
+        return $auth.validateUser();
+      }
+    }
   }).state("lists", {
     url: "/users/:userId/list",
     template: "<user-list></user-list>",
@@ -46277,7 +46279,7 @@ angular.module("CrispApp").component("crispHome", homeComponent);
 /* 101 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"promo-hero promo-hero-bg-image\">\n  <div class=\"promo-hero-content\">\n    <h1 class=\"promo-hero-title\">Where Great Meals Begin! </h1>\n    <p class=\"promo-hero-description hide-for-small-only\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor ante, varius eget lacinia porta, faucibus ut eros. Donec quis dui id felis pharetra fermentum.</p>\n    <div class=\"promo-hero-ctas\">\n      <a href=\"#\" class=\"promo-section-cta button primary\">Order Now</a>\n      <a href=\"#\" class=\"promo-section-cta button white-hollow\">Learn More</a>\n    </div>\n  </div>\n</div>\n<div >\n    <img ng-src=\"../crisp-Infographic.png{{hash}}\" alt=\"Crisp!\" height=\"100px\" width=\"100px\">\n    \n</div>\n\n<header class=\"hero-search-filter\">\n  <div class=\"hero-search-filter-content\">\n    <img class=\"hero-search-filter-logo\" src=\"xxxHTMLLINKxxx0.5248590650590970.9159634774785421xxx\" alt=\"\" />\n    <h1 class=\"promo-hero-title\">Where Great Meals Begin! </h1>\n    <form class=\"hero-search-filter-form\" action=\"\">\n      <label for=\"findtext\">Find</label>\n      <input id=\"findtext\" class=\"hero-search-filter-form-find\" type=\"text\" />\n      <div class=\"divider\">&nbsp;</div>\n      <label for=\"findlocate\">Near</label>\n      <input id=\"findlocate\" class=\"hero-search-filter-form-near\" type=\"text\" />\n      <button class=\"button\"><i class=\"fa fa-search\"></i></button>\n    </form>\n    <ul class=\"hero-search-filter-menu menu align-center\">\n      <li><a href=\"#\"><i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i> </a></li>\n      <li><a href=\"#\"><i class=\"fa fa-glass\" aria-hidden=\"true\"></i> Nightlife</a></li>\n      <li><a href=\"#\"><i class=\"fa fa-wrench\" aria-hidden=\"true\"></i> Home Services</a></li>\n      <li><a href=\"#\"><i class=\"fa fa-cutlery\" aria-hidden=\"true\"></i> Delivery</a></li>\n    </ul>\n  </div>\n</header>\n\n";
+module.exports = "<div class=\"promo-hero promo-hero-bg-image\">\n  <div class=\"promo-hero-content\">\n    <h1 class=\"promo-hero-title\">Where Great Meals Begin! </h1>\n    <p class=\"promo-hero-description hide-for-small-only\"></p>\n    <div class=\"hero-search-filter-content\">\n    <form class=\"hero-search-filter-form\" action=\"\">\n      <label for=\"findtext\">Find</label>\n      <input id=\"findtext\" class=\"hero-search-filter-form-find\" type=\"text\" />\n      <button class=\"button\"><i class=\"fa fa-cutlery\"></i></button>\n    </form>\n    <ul class=\"hero-search-filter-menu menu align-center\">\n      \n    </ul>\n  </div>\n    <div class=\"promo-hero-ctas\">\n      <a href=\"#\" class=\"promo-section-cta button primary\">Order Now</a>\n      <a href=\"#\" class=\"promo-section-cta button white-hollow\">Learn More</a>\n    </div>\n  </div>\n</div>\n\n\n  ";
 
 /***/ }),
 /* 102 */
@@ -46367,7 +46369,7 @@ angular.module("CrispApp").component("crispNav", navComponent);
 /* 107 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"title-bar topbar-center-logo-mobile\" data-responsive-toggle=\"topbar-center-logo\" data-hide-for=\"medium\">\n  <div class=\"title-bar-left\">\n    <div class=\"title-bar-title\"><img src=\"/crisp-logo-white.png\" alt=\"Crisp! Logo\" /></div>\n  </div>\n  <div class=\"title-bar-right\">\n    <button class=\"menu-icon\" type=\"button\" data-toggle=\"topbar-center-logo\"></button>\n  </div>\n</div>\n<!-- /mobile nav bar -->\n\n<!-- medium and larger nav bar -->\n<div class=\"top-bar topbar-center-logo\" id=\"topbar-center-logo\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a href=\"#\">One</a></li>\n      <li><a href=\"#\">Two</a></li>\n      <li><a href=\"#\">Three</a></li>\n    </ul>\n  </div>\n  <div class=\"top-bar-center\">\n    <a href=\"#\"><img src=\"/crisp-logo-white.png\" alt=\"Crisp!\" height=\"50\" width=\"100\" ></a>\n  </div>\n  <div class=\"top-bar-right\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a href=\"#\">Four</a></li>\n      <li><a href=\"#\">Five</a></li>\n      <li><a href=\"#\">Six</a></li>\n    </ul>\n  </div>\n</div>\n<div ng-show=\"!$ctrl.currentUser.id\">\n  <p><a ui-sref=\"signIn\">Sign in</a></p>\n  <p><a ui-sref=\"userRegistration\">Sign up</a></p>\n</div>\n<div ng-show=\"$ctrl.currentUser.id\">\n  <p>Signed in as {{$ctrl.currentUser.email}}</p>\n  <p><a ng-click='$ctrl.signOut()'>Log Out</a></p>\n  <p><a ui-sref=\"list({userId: $ctrl.currentUser.id})\">Search List</a></p>\n  <p><a ui-sref=\"recipes({userId: $ctrl.currentUser.id})\">Search Recipes</a></p>\n</div>";
+module.exports = "<div ng-show=\"!$ctrl.currentUser.id\" class=\"title-bar topbar-center-logo-mobile\" data-responsive-toggle=\"topbar-center-logo\" data-hide-for=\"medium\">\n  <div class=\"title-bar-left\">\n     <!-- <div class=\"title-bar-title\"><img src=\"http://i.imgur.com/FKejd75\" alt=\"Crisp! Logo\" /></div>  -->\n  </div>\n  <div class=\"title-bar-right\">\n    <button class=\"menu-icon\" type=\"button\" data-toggle=\"topbar-center-logo\"></button>\n  </div>\n</div>\n<!-- /mobile nav bar -->\n\n<!-- medium and larger nav bar -->\n<div ng-show=\"!$ctrl.currentUser.id\" class=\"top-bar topbar-center-logo\" id=\"topbar-center-logo\">\n  <div class=\"top-bar-left\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a ui-sref=\"home\">Home</a></li>\n      <li><a ui-sref=\"userRegistration\">Sign up</a></li>\n      <li><a ui-sref=\"signIn\">Sign in</a></li>\n    </ul>\n\n  </div>\n  <div class=\"top-bar-center\">\n     <!-- <a ui-serf=\"home\"><img url=\"http://imgur.com/FKejd75\" alt=\"Crisp!\" height=\"50\" width=\"100\" ></a>  -->\n  </div>\n  <div ng-show=\"!$ctrl.currentUser.id\" class=\"top-bar-right\">\n    <ul class=\"menu vertical medium-horizontal\">\n      <li><a href=\"#\">Four</a></li>\n      <li><a ng-click='$ctrl.signOut()'>Log Out</a></li>\n      <li>Signed in as {{$ctrl.currentUser.email}}</li>\n    </ul>\n  </div>\n</div>\n<!-- <div ng-show=\"!$ctrl.currentUser.id\">\n  <p><a ui-sref=\"signIn\">Sign in</a></p>\n  <p><a ui-sref=\"userRegistration\">Sign up</a></p>\n</div>\n<div ng-show=\"$ctrl.currentUser.id\">\n  <p>Signed in as {{$ctrl.currentUser.email}}</p>\n  <p><a ng-click='$ctrl.signOut()'>Log Out</a></p>\n  <p><a ui-sref=\"list({userId: $ctrl.currentUser.id})\">Search List</a></p>\n  <p><a ui-sref=\"recipes({userId: $ctrl.currentUser.id})\">Search Recipes</a></p>\n</div> -->";
 
 /***/ }),
 /* 108 */
