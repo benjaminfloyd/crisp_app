@@ -1,15 +1,15 @@
 const angular = require("angular");
 
-recipeService.$inject = ["$http"];
+recipeService.$inject = ["$http","$state"];
 
-function recipeService ($http) {
+function recipeService ($http,$state) {
 	const service = this;
 
 service.searchRecipe = function (searchTerm) {
-		var searchUrl = "http://api.yummly.com/v1/api/recipes?_app_id=3fa3ebcf&_app_key=a547eb1a914afed4c7c72587040d377c&q=" + searchTerm;
+		var searchUrl = '/search/' + searchTerm
 		return $http.get(searchUrl).then(response => {
-			console.log(searchTerm)
-			console.log("response is : ", response.data);
+		
+			$state.go('recipes', { recipes: response.data });
 			return response.data;
 		});
     };

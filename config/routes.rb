@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   root "welcome#index"
-
+  get "/search/:search" => "recipes#fetch_recipe"
   post "/lists/:list_id/foods" => "foods#create"
   
   namespace :api do

@@ -67,6 +67,12 @@ function router ($stateProvider, $urlRouterProvider) {
 			url: "/users/:userId/list/new",
       template: "<new-list></new-list>",
       params: {userId: null}
-		});
+    })
+    
+    .state('recipes',{
+      url:"/recipes",
+      template: "<recipes></recipes>",
+      params: {recipes: null}
+    })
 	$urlRouterProvider.otherwise("/");
 }
