@@ -2,7 +2,7 @@
   "name": "crisp_app",
   "private": true,
   "scripts": {
-	  "postinstall": "webpack -p --progress && rails assets:precompile"
+	  "postinstall": "webpack -p && rails assets:precompile"
   },
   
   "dependencies": {
