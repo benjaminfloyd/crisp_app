@@ -2,8 +2,8 @@
   "name": "crisp_app",
   "private": true,
   "scripts": {
-	"postinstall": "webpack -p --progress"
-},
+	  "postinstall": "webpack -p --progress && rails assets:precompile"
+  },
   
   "dependencies": {
     "angular": "^1.6.5",
