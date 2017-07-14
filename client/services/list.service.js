@@ -30,6 +30,7 @@ function listService ($http) {
 			return $http.post(`api/lists/${list.id}/foods`, {list: newList})
 			.then(response => {
 				return response.data;
+				
 			});
 			// return res.data;
 		});

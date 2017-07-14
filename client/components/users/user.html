@@ -1,10 +1,92 @@
-
- <a ui-sref="home"> Go Back </a>
-    <div ng-repeat="list in $ctrl.lists" class="app-dashboard-body-content off-canvas-content" data-off-canvas-content>
-      <h2 class="text-center">Grocery List</h2>
-      {{list.title}}
-      <div ng-repeat="food in list.foods">
-        {{food.name}}
+<!-- 
+<div class="app-dashboard shrink-medium">
+  <div class="row expanded app-dashboard-top-nav-bar">
+    <div class="columns medium-2">
+      <button data-toggle="app-dashboard-sidebar" class="menu-icon hide-for-medium"></button>
+      <a class="app-dashboard-logo">Foundation</a>
+    </div>
+    <div class="columns show-for-medium">
+      <div class="app-dashboard-search-bar-container">
+        <input class="app-dashboard-search" type="search" placeholder="Search">
+        <i class="app-dashboard-search-icon fa fa-search"></i>
       </div>
-</div>
-    
+    </div>
+    <div class="columns shrink app-dashboard-top-bar-actions">
+      <button href="#" class="button hollow">Logout</button>
+      <a href="#" height="30" width="30" alt=""><i class="fa fa-info-circle"></i></a>
+    </div>
+  </div> -->
+
+<div class="app-dashboard-body off-canvas-wrapper">
+  <div id="app-dashboard-sidebar" class="app-dashboard-sidebar position-left off-canvas off-canvas-absolute reveal-for-medium"
+    data-off-canvas>
+    <div class="app-dashboard-sidebar-title-area">
+      <div class="app-dashboard-close-sidebar">
+        <h3 class="app-dashboard-sidebar-block-title">Profile</h3>
+        <!-- Close button -->
+        <button id="close-sidebar" data-app-dashboard-toggle-shrink class="app-dashboard-sidebar-close-button show-for-medium" aria-label="Close menu"
+          type="button">
+            <span aria-hidden="true"><a href="#"><i class="large fa fa-angle-double-left"></i></a></span>
+          </button>
+      </div>
+      <div class="app-dashboard-open-sidebar">
+        <button id="open-sidebar" data-app-dashboard-toggle-shrink class="app-dashboard-open-sidebar-button show-for-medium" aria-label="open menu"
+          type="button">
+            <span aria-hidden="true"><a href="#"><i class="large fa fa-angle-double-right"></i></a></span>
+          </button>
+      </div>
+    </div>
+    <div class="app-dashboard-sidebar-inner">
+      <ul class="menu vertical">
+
+        <li><a href="#" class="is-active">
+            <i class="large fa fa-user"></i><span class="app-dashboard-sidebar-text">Edit User</span>
+          </a></li>
+        <li><a>
+            <i class="large fa fa-heart "></i><span class="app-dashboard-sidebar-text">Favorites</span>
+          </a></li>
+        <li><a ui-sref="newList">
+            <i class="large fa fa-shopping-cart "></i><span class="app-dashboard-sidebar-text">New List</span>
+
+          </a></li>
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="app-dashboard-body-content off-canvas-content" data-off-canvas-content>
+<header class="hero-search-filter">
+  <div class="hero-search-filter-content">
+    <img class="hero-search-filter-logo"  alt="" />
+    <form class="hero-search-filter-form" action="">
+      <label for="findtext">Find</label>
+      <input id="findtext" class="hero-search-filter-form-find" type="text" />
+      
+      <input id="findlocate" class="hero-search-filter-form-near" type="text" />
+      <button class="button"><i class="fa fa-search"></i></button>
+    </form>
+    <ul class="hero-search-filter-menu menu align-center">
+     
+    </ul>
+  </div>
+</header>
+
+
+    <div class="small-4 large-2 columns" ng-repeat="list in $ctrl.lists" class="app-dashboard-body-content off-canvas-content"
+      data-off-canvas-content>
+      <div>
+        <div class="callout-body">
+          <h2 class="text-center">Grocery List</h2>
+
+        </div> {{list.title}}
+        <div ng-repeat="food in list.foods">
+            {{food.name}} 
+            </div>
+          <label>Edit List</label>
+              <a href="#" class="button">Edit</a>
+              <a href="#" class="button">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+

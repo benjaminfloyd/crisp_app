@@ -24,9 +24,9 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu vertical medium-horizontal">
+      <li><a ui-sref="users({userId: $ctrl.currentUser.id })">{{$ctrl.currentUser.email}}</a></li>
       <li><a ng-click='$ctrl.signOut()'>Log Out</a></li>
-      <li>{{$ctrl.currentUser.email}}</li>
-      <li><a href="#"></a></li>
+      <li><a ui-sref="">Porfile</a></li>
     </ul>
   </div>
 </div>

@@ -8,10 +8,11 @@ function NewListController($stateParams, $http, listService, $state, $auth, reci
 	vm.newItem = '';
 	vm.newList = {};
 	vm.searchTerm = '';
+	
 
 	vm.saveList = function () {
 		listService.saveList(vm.user.id, vm.items).then((res) => {
-      		$state.go("home");
+      		$state.go('/users/' + vm.user.id);
 		});
 	};
 
