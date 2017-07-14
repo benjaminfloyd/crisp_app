@@ -1,0 +1,93 @@
+<div class="app-dashboard-body off-canvas-wrapper">
+  <div id="app-dashboard-sidebar" class="app-dashboard-sidebar position-left off-canvas off-canvas-absolute reveal-for-medium"
+    data-off-canvas>
+    <div class="app-dashboard-sidebar-title-area">
+      <div class="app-dashboard-close-sidebar">
+        <h3 class="app-dashboard-sidebar-block-title">Profile</h3>
+        <!-- Close button -->
+        <button id="close-sidebar" data-app-dashboard-toggle-shrink class="app-dashboard-sidebar-close-button show-for-medium" aria-label="Close menu"
+          type="button">
+            <span aria-hidden="true"><a href="#"><i class="large fa fa-angle-double-left"></i></a></span>
+          </button>
+      </div>
+      <div class="app-dashboard-open-sidebar">
+        <button id="open-sidebar" data-app-dashboard-toggle-shrink class="app-dashboard-open-sidebar-button show-for-medium" aria-label="open menu"
+          type="button">
+            <span aria-hidden="true"><a href="#"><i class="large fa fa-angle-double-right"></i></a></span>
+          </button>
+      </div>
+    </div>
+    <div class="app-dashboard-sidebar-inner">
+      <ul class="menu vertical">
+
+        <li><a href="#" class="is-active">
+            <i class="large fa fa-user"></i><span class="app-dashboard-sidebar-text">Edit User</span>
+          </a></li>
+        <li><a>
+            <i class="large fa fa-heart "></i><span class="app-dashboard-sidebar-text">Favorites</span>
+          </a></li>
+        <li><a ui-sref="newList">
+            <i class="large fa fa-shopping-cart "></i><span class="app-dashboard-sidebar-text">New List</span>
+
+          </a></li>
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="app-dashboard-body-content off-canvas-content" data-off-canvas-content>
+<header class="hero-search-filter">
+  <div class="hero-search-filter-content">
+    <img class="hero-search-filter-logo"  alt="" />
+      <form class="hero-search-filter-form" ng-submit="$ctrl.searchRecipe($ctrl.searchTerm)">
+      <label for="findtext">Find</label>
+      <input ng-model="$ctrl.searchTerm" id="findtext" class="hero-search-filter-form-find" type="text" />
+      <button type="submit" class="button"><i class="fa fa-cutlery"></i></button>
+      
+    </form>
+    <ul class="hero-search-filter-menu menu align-center">
+     
+    </ul>
+  </div>
+</header>
+<div >
+  <h1>Recipes for {{$ctrl.searchTerm}}</h1>
+</div>
+<div class="row">
+  <div class="large-4 large-4 columns" ng-repeat="recipe in $ctrl.recipes">
+    <div class="card card-product-hover">
+
+      <img ng-src="{{recipe.imageUrlsBySize
+[90]}}" height="175" width="175" />
+      <div class="card-product-hover-icons">
+        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+        <a href="#"><i class="fa fa-heart"></i></a>
+        <a href="#"><i class="fa fa-share-alt"></i></a>
+      </div>
+      <div class="card-product-hover-details">
+        <h2 class="card-product-hover-title">{{recipe.recipeName}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+    <div class="small-4 large-2 columns" ng-repeat="list in $ctrl.lists" class="app-dashboard-body-content off-canvas-content"
+      data-off-canvas-content>
+      <div>
+        <div class="callout-body">
+          <h2 class="text-center">Grocery List</h2>
+
+        </div> {{list.title}}
+        <div ng-repeat="food in list.foods">
+            {{food.name}} 
+            </div>
+          <label>Edit List</label>
+              <a ui-sref="" class="button">Edit</a>
+              <a ng-click='$ctrl.deleteList(list.id)' class="button">Delete</a>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+

@@ -1,0 +1,26 @@
+  <div ng-show="!$ctrl.currentUser.id" >
+      <form class="hero-search-filter-form" ng-submit="$ctrl.searchRecipe()">
+      <label for="findtext">Find</label>
+      <input ng-model="$ctrl.searchTerm" id="findtext" class="hero-search-filter-form-find" type="text" />
+      <button type="submit" class="button"><i class="fa fa-cutlery"></i></button>
+    </form>
+    <ul class="hero-search-filter-menu menu align-center">
+  <h1>Grocery list manager </h1>
+  <h2>Add an item below</h2>
+<form class="Grocery-list-form" ng-submit="$ctrl.addItem()">
+  <input id="inputText" type="item" ng-model="$ctrl.newItem" required="required" class="form-control"placeholder="enter grocery item">
+  <button type="submit"> <i class="fa fa-list-alt" aria-hidden="true"></i>add</button>
+  </div>
+</form>
+<div>
+    <ul id="list">
+        <ul class="list-group">
+            <li ng-repeat="item in $ctrl.items" class="list-group-item">
+                <span> {{ item }} </span>
+            </li>
+        </ul>
+    </ul>
+    <button type="submit" ng-click="$ctrl.saveList()" class="button">Submit</button>
+</div>
+
+

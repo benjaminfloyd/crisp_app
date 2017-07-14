@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   root "welcome#index"
+  get "/search/:search" => "recipes#fetch_recipe"
+  get "/recipe/:recipe" => "recipe#show_recipe"
+  post "/lists/:list_id/foods" => "foods#create"
 
+  
   namespace :api do
     resources :users do
       resources :lists
+    end
+    resources :lists, only: [] do
+      resources :foods
     end
   end
 

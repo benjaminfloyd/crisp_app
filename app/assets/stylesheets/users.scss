@@ -1,3 +1,398 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.hero-background {
+  height: 700px;
+  background-image: url(./FarmToTableBackground.jpg);
+  background-size: cover;
+  color: #fefefe;
+  padding: 40px 0;
+}
+
+.hero-background h1, .hero-background p {
+  color: #fefefe;
+}
+
+.log-in-form {
+  border: 1px solid $medium-gray;
+  padding: $form-spacing;
+  border-radius: $global-radius;
+}
+
+$translucent-form-overlay-max-width: 500px;
+
+.translucent-form-overlay {
+  max-width: $translucent-form-overlay-max-width;
+  width: 100%;
+  background-color: rgba(254, 254, 254, 0.2);
+  padding: 20px;
+  color: $white;
+
+  // workaround 6.3.0 bug
+  .columns.row {
+    display: block;
+  }
+
+  h3, label {
+    color: $white;
+  }
+  input, select {
+    color: $dark-gray;
+  }
+  input::placeholder {
+    color: $dark-gray;
+  }
+}
+
+$app-dashboard-top-nav-color: #2c3840;
+$app-dashboard-top-nav-height: 55px;
+
+.app-dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-dashboard-body {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.app-dashboard-top-nav-bar  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $app-dashboard-top-nav-color;
+  height: $app-dashboard-top-nav-height;
+  width: 100%;
+  flex: 0 0 $app-dashboard-top-nav-height;
+  .menu-icon {
+    vertical-align: text-bottom;
+  }
+}
+
+.app-dashboard-logo {
+  color: $white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.app-dashboard-search-bar-container {
+  position: relative;
+}
+
+.app-dashboard-search {
+  background: lighten($app-dashboard-top-nav-color, 10%);
+  border: 0;
+  margin-bottom: 0;
+  color: $white;
+
+  &:active,
+  &:focus {
+    background: darken($app-dashboard-top-nav-color, 5%);
+  }
+}
+
+.app-dashboard-search-icon {
+  position: absolute;
+  color: $white;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.app-dashboard-top-bar-actions {
+  align-items: center;
+  display: flex;
+
+  button {
+    margin-bottom: 0;
+    margin-right: 2rem;
+
+    &.hollow {
+      border-color: $white;
+      color: $white;
+      
+      &:hover {
+        background: $white;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .fa-info-circle {
+    color: $white;
+    font-size: 1.5rem;
+  }
+}
+
+.app-dashboard-sidebar {
+  background-color: $white;
+  height: 100%;
+  overflow-x: visible;
+  overflow-y: auto;
+  z-index: 1;
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+
+
+  .app-dashboard-open-sidebar, .app-dashboard-close-sidebar{
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+  }
+
+  .app-dashboard-sidebar-close-button {
+    font-size: 14px;
+  }
+
+  .app-dashboard-sidebar-inner {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .menu > li > a {
+      align-items: center;
+    }
+  }
+  .fa.large {
+    font-size: rem-calc(24);
+    width: 40px;
+  }
+}
+
+.reveal-for-medium {
+  .app-dashboard-open-sidebar {
+    display: none;
+  }
+}
+
+.app-dashboard-sidebar-footer {
+  background: rgba(42, 57, 79, 0.8);
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  width: 100%;
+}
+
+.app-dashboard-open-sidebar {
+  text-align: center;
+}
+
+.app-dashboard-body-content {
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  overflow-y: auto;
+  flex: 1 1 0;
+  padding: 20px;
+  background-color: $white;
+}
+
+@mixin shrunk-sidebar() {
+  .app-dashboard-close-sidebar, .app-dashboard-sidebar-text {
+    display: none;
+  }
+
+  .app-dashboard-open-sidebar {
+    display: block;
+  }
+
+  .app-dashboard-sidebar {
+    width: 80px;
+    .fa.large {
+      width: auto;
+    }
+  }
+
+  .off-canvas-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+
+  .navigation {
+    margin-top: 2rem;
+    text-align: center;
+
+  }
+  .menu.vertical > li > a {
+    justify-content: center;
+  }
+
+  .menu {
+    li {
+      &::after {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      a {
+        padding: 0.75rem;
+        svg {
+          margin: 0;
+        }
+        span {
+          display: none;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+// mini sidebar on medium/tablet size
+@include breakpoint(medium only) {
+  .app-dashboard.shrink-medium {
+    @include shrunk-sidebar()
+  }
+}
+@include breakpoint(large) {
+  .app-dashboard.shrink-large {
+    @include shrunk-sidebar()
+  }
+}
+
+.callout-hover-reveal .callout-footer {
+  display: none;
+}
+
+.button-hover-reveal-wrapper {
+  overflow: hidden;
+  border: 2px solid $primary-color;
+  border-radius: 5000px;
+  text-align: center;
+  width: 100%;
+  background: $white;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    border: none;
+    background-color: $primary-color;
+    transition: background-color 0.5s ease;
+
+    .button-hover-reveal {
+      display: block;
+      font-size: 16px;
+      padding: 22px;
+
+      &:hover {
+        transition: background-color 0.5s ease;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    label {
+      display: none;
+    }
+  }
+
+  .button-hover-reveal {
+    display: none;
+    color: $white;
+    width: 50%;
+    z-index: 1;
+  }
+
+  label {
+    padding: 16px;
+    color: $primary-color;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+
+$hero-search-filter-height: 300px;
+
+.hero-search-filter {
+  background: url('https://images.pexels.com/photos/115095/pexels-photo-115095.jpeg?w=940&h=650&auto=compress&cs=tinysrgb') center center no-repeat;
+  height: $hero-search-filter-height;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.hero-search-filter-logo {
+  margin-bottom: 2rem;
+}
+
+.hero-search-filter-content {
+  display: flex;
+  width: 100%;
+  height: $hero-search-filter-height;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-search-filter-menu {
+  flex-wrap: wrap;
+
+  @include breakpoint(small only) {
+    li {
+      flex-basis: 50%;
+
+      a {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.hero-search-filter-menu a {
+  color: $white;
+  font-weight: bold;
+
+  .fa {
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.hero-search-filter-form {
+  display: flex;
+  width: 90%;
+  background: $white;
+  padding: 0.25rem;
+  border-radius: 5px;
+  align-items: center;
+
+  .divider {
+    background-color: $medium-gray;
+    width: 1px;
+  }
+
+  label {
+    margin-right: 0.75rem;
+    margin-left: 0.75rem;
+    color: $dark-gray;
+    font-weight: bold;
+  }
+
+  input,
+  .button {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(small only) {
+    width: 95%;
+  }
+}
+
+.hero-search-filter-form-find,
+.hero-search-filter-form-near {
+  border: 0;
+  box-shadow: none;
+
+  &:focus {
+    border: 0;
+    box-shadow: none;
+  }
+}
+

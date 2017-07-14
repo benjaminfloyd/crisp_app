@@ -1,0 +1,25 @@
+<div class="hero-background">
+<div class="translucent-form-overlay">
+<form ng-submit="$ctrl.handleLoginBtnClick()" role="form" ng-init="$ctrl.registrationForm = {}">
+<form class="log-in-form">
+  <h3 class="text-center"> Welcome to Crisp! </h3>
+  <h4 class="text-center">Where Great Meals Begin!</h4>
+  <label>Email
+     <input type="email" name="email" ng-model="$ctrl.registrationForm.email" required="required" class="form-control" placeholder="somebody@example.com"/>
+  </label>
+  <label>Zipcode
+     <input type="zip_code" name="zip_code" ng-model="$ctrl.registrationForm.zip_code" required="required" class="form-control" placeholder="Zipcode"/>
+  </label>
+  <label>Password
+        <input type="password" name="password" ng-model="$ctrl.registrationForm.password" required="required" class="form-control" placeholder="Minimum of eight characters"/>
+  </label>
+  <div class="form-group">
+    <label>Password confirmation</label>
+    <input type="password" name="password_confirmation" ng-model="$ctrl.registrationForm.password_confirmation" required="required"
+      class="form-control" placeholder="Re-enter Password" />
+  </div>
+  <p><input type="submit" class="button expanded" value="Create"></input>
+  </p>
+</form>
+</div>
+</div>

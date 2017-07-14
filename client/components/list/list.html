@@ -1,0 +1,14 @@
+<h1>List</h1>
+<a ui-sref="newList({userId: $ctrl.user.id})">
+    <div class="btn btn-large">+ New List</div>
+</a>
+<div >
+    
+        <img ng-src={{$ctrl.user.photo_url}}></img>
+        <div class="info">
+            <h4>{{$ctrl.list.title}}</h4>
+            <div>{{$ctrl.list.item}}</div>
+            
+        </div>
+    
+</div>
