@@ -18,4 +18,4 @@
 
 .byebug_history
 
-./app/assets/javascripts/app.bundle.js
+/app/assets/javascripts/app.bundle.js
