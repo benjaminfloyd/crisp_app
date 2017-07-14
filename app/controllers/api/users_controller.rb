@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
         @lists = @user.lists
        
         lists_w_foods = @lists.map do |list|
-            { title: list.title, foods: list.foods }
+            { id: list.id, title: list.title, foods: list.foods }
         end
         puts @user
         puts @lists

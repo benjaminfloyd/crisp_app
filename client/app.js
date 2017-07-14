@@ -74,5 +74,10 @@ function router ($stateProvider, $urlRouterProvider) {
       template: "<recipes></recipes>",
       params: {recipes: null}
     })
+    .state('recipeShow', {
+      url:"/recipe",
+      template: "<recipe-show></recipe-show>",
+      params: {recipe: null}
+    })
 	$urlRouterProvider.otherwise("/");
 }

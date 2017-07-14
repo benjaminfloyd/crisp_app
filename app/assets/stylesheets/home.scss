@@ -2,9 +2,10 @@
   width: 100%;
   text-align: center;
   height: 420px;
-  background: $dark-gray;
+  
   position: relative;
   color: white;
+  
 
   .button.white-hollow {
     border: 1px solid $white;
@@ -39,13 +40,14 @@
   margin-bottom: 1rem;
 }
 
-
 .promo-hero-bg-image {
   overflow: hidden;
-  background-image: url();
+  
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  
+  
   
   // overlay
   &:before {
@@ -56,6 +58,7 @@
     background: rgba(0,0,0,0.4);
     position: relative;
     z-index: 1;
+    
   }
 }
 

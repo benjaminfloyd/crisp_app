@@ -1,8 +1,8 @@
 const angular = require("angular");
 
-usersService.$inject = ["$http"];
+usersService.$inject = ["$http","recipeService"];
 
-function usersService ($http) {
+function usersService ($http, recipeService) {
 	const service = this;
 
 	service.getAllUsers = function () {
@@ -22,6 +22,12 @@ function usersService ($http) {
 			return res.data;
 		});
 	};
+
+	service.editUser = function (id) {
+		console.log(userId)
+		return $http.patch(`/api/users/${id}`)
+	};
+
 
 	return service;
 }

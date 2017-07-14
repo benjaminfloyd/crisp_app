@@ -1,6 +1,9 @@
-UserController.$inject = ["$stateParams", "usersService"];
-function UserController($stateParams, usersService) {
+UserController.$inject = ["$stateParams", "usersService", "listService", "recipeService"];
+function UserController($stateParams, usersService, listService, recipeService) {
   const vm = this;
+  vm.deleteList = deleteList;
+  vm.searchRecipe = searchRecipe;
+  vm.recipes = [];
 
   activate();
 
@@ -14,6 +17,24 @@ function UserController($stateParams, usersService) {
     });
   }
 
+  function deleteList(listId){ 
+    listService.deleteList($stateParams.userId, listId).then((res) =>{
+      console.log('List Deleted')
+
+      activate();
+    })
+  
+  }
+
+  function searchRecipe(query) {
+    recipeService.searchRecipe(query).then(res => {
+      // console.log(res);
+      console.log(res.matches);
+      vm.recipes = res.matches;
+      
+    });
+
+  } 
 
 }
 export default UserController;

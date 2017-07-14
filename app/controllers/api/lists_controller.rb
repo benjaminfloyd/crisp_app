@@ -42,10 +42,13 @@ class Api::ListsController < ApplicationController
     end   
         
     def destroy
-      @user = User.find(params[:id])
-
-        if @user.destroy
-            redirect_to users_path
+      @user = User.find(params[:user_id])
+      @list = @user.lists.find(params[:id])  
+        if @list.destroy
+            render status: 200,
+                    json:{
+                        mgs: 'Complete'
+                    }
         else
             render status: 500,
                     json: {

@@ -36,6 +36,15 @@ function listService ($http) {
 		});
 	};
 
+	service.deleteList = function (userId, listId) {
+    console.log("userId", userId, 'listId', listId)
+    return $http.delete("api/users/" + userId + "/lists/" + listId)
+      .then(res => {
+        return res;
+      });
+  };
+
+
 	return service;
 }
 

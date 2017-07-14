@@ -1,0 +1,7 @@
+<div>
+    {{$ctrl.recipe.recipeName}}
+    {{$ctrl.recipe.ingredients}}
+    {{$ctrl.recipe.course}}
+    {{$ctrl.recipe.cuisine}}
+    <img ng-if="$ctrl.recipe.imageUrlsBySize['90']" ng-src="{{$ctrl.recipe.imageUrlsBySize['90']}}"/>
+</div>
